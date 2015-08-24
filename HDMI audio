@@ -1,0 +1,21 @@
+In a few time ago, I was installed Slackware linux, but with an issue that prevent me to use this awesome distro.
+So, I went to Arch Linux and I was using it for a long time, however that starts to get some troubles, and I decided
+to turn back and install Slackware 14.1.
+
+In this adventure I came across the same problem, the "HDMI" audio doesn't work still ,then I look up( I don't know if
+this expression is right, whatever) to all internet websites and forums, and don't found the right answer, however I
+don't give up and still trying to fix it, and luckly I finally fixed! :D
+
+I hope this help all people on Slackware 14.1, to fix problem with HDMI audio.(notice: I don't gonna teach you how to 
+install your video card driver correctly, just how to make hdmi sound work).
+
+First of All:
+
+1. Unsure that your Slackware has been installed from zero.
+
+2. After, look up at website of your video card and download the correct driver for it, and after install the 
+video card driver correctly.
+
+3. So, go to SlackBuilds.org and download pulseaudio, alsa-utils and pavucontrol and install all this stuff.
+
+4. (...)

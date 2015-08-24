@@ -9,13 +9,67 @@ don't give up and still trying to fix it, and luckly I finally fixed! :D
 I hope this help all people on Slackware 14.1, to fix problem with HDMI audio.(notice: I don't gonna teach you how to 
 install your video card driver correctly, just how to make hdmi sound work).
 
-First of All:
+First of All Unsure your user is not the root, and is included in audio group.
 
 1. Unsure that your Slackware has been installed from zero.
 
 2. After, look up at website of your video card and download the correct driver for it, and after install the 
-video card driver correctly.
+   video card driver correctly.
 
-3. So, go to SlackBuilds.org and download pulseaudio, alsa-utils and pavucontrol and install all this stuff.
+3. After that, go to SlackBuilds.org and download pulseaudio, alsa-utils and pavucontrol and install all this stuff.
 
-4. (...)
+4. Go to the terminal and open alsamixer, select your video card with F6, and after press key "M" to unmute all of
+   channels.
+
+5.  Now open pavucontrol and select your plugged in, sound output, in my case for example I selected
+    "Digital Stereo (HDMI 2) Output" in GK104 HDMI Audio Controller(I don't know if your will look the same), and 
+    in "Built-in Audio" I selected "off", to know which of choices are the correct conected, just select the option
+    without the tag "(unplugged)".
+
+6. We need now to know which card and device are plugged in, for this type in the terminal:
+   $ aplay -l (or aplay -l | grep card)
+   This will give you a list of all card and devices in it, in my case I've to look to the card and device with 
+   tag [HDMI 2](as I saw before).
+   When I type in terminal that returns this result below.
+   $ aplay -l | grep card
+     card 0: PCH [HDA Intel PCH], device 0: ALC892 Analog [ALC892 Analog]
+     card 0: PCH [HDA Intel PCH], device 1: ALC892 Digital [ALC892 Digital]
+     card 1: NVidia [HDA NVidia], device 3: HDMI 0 [HDMI 0]
+     card 1: NVidia [HDA NVidia], device 7: HDMI 1 [HDMI 1]
+     card 1: NVidia [HDA NVidia], device 8: HDMI 2 [HDMI 2]
+     card 1: NVidia [HDA NVidia], device 9: HDMI 3 [HDMI 3]
+     
+     So I know my HDMI 2 is plugged in, then my correct choice is "card 1" and "device 8", I'll use it later.
+
+7. So, you are almost ready, now you need to configure pulseaudio to look to our correct video card and device(:P), 
+   now in your HOME directory create a file named ".asoundrc" and inside of it put the following: 
+   
+   pcm.pulse {
+      type pulse
+   }
+
+   ctl.pulse {
+      type pulse
+   }
+   
+   Now save and close the archive, and test with this command in terminal: aplay -Dpulse "some_audio_you_want_here.wav"
+   If it works, go to next step.
+   
+8. Now we need to make pulseaudio the default driver, to do this put in the end of .asoundrc archive we created,
+   this contend:
+   
+   pcm.!default {
+    type pulse
+    # If defaults.namehint.showall is set to off in alsa.conf, then this is
+    # necessary to make this pcm show up in the list returned by
+    # snd_device_name_hint or aplay -L
+    hint.description "Default Audio Device"
+   }
+   ctl.!default {
+    type pulse
+   }
+   
+   save and close, after that all reboot, and you'll get finally the HDMI sound working!!! =D
+   
+
+   

@@ -7,7 +7,7 @@ Some useful tips and tricks on slackware 14.1(my current Operating System)
 
 
 
-
+<hr />
 <a href="https://github.com/jozadaquebatista/Slackware14.1-Tips-and-Tricks/blob/master/HDMI%20audio">How to get working HDMI audio in Slackware 14.1</a>
 
 And more stuff comming soon...

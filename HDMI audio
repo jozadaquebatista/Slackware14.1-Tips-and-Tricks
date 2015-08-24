@@ -65,8 +65,8 @@ First of All Unsure your user is not the root, and is included in audio group.
    Now save and close the archive, and test with this command in terminal: aplay -Dpulse "some_audio_you_want_here.wav"
    If it works, go to next step.
    
-8. Now we need to make pulseaudio the default driver, to do this put in the end of .asoundrc archive we created,
-   this contend:
+8. Now we need to make pulseaudio the default driver, to do this add in the end of .asoundrc archive we created,
+   the following content:
    
    pcm.!default {
     type pulse

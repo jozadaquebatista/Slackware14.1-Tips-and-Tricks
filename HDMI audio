@@ -17,6 +17,8 @@ First of All Unsure your user is not the root, and is included in audio group.
    video card driver correctly.
 
 3. After that, go to SlackBuilds.org and download pulseaudio, alsa-utils and pavucontrol and install all this stuff.
+   notice: Maybe in install of pulse audio, you will get some missing *.new files in /etc/pulse/ directory, to fix this
+   copy files in /etc/pulse/ directory and rename to the missing .new files and put there in this same directory again.
 
 4. Go to the terminal and open alsamixer, select your video card with F6, and after press key "M" to unmute all of
    channels.
@@ -70,6 +72,12 @@ First of All Unsure your user is not the root, and is included in audio group.
    }
    
    save and close, after that all reboot, and you'll get finally the HDMI sound working!!! =D
-   
 
+  ------
+
+
+  [ @Author: Jozadaque Batista ]
+
+  [ Reference Links: ]
+  http://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/PerfectSetup/
    

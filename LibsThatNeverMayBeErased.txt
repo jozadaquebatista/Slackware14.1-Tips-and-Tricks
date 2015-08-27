@@ -7,7 +7,7 @@
 In the last day, I'm on my slackware linux system, and setting my configs, 
 when unintentionally I erased the "libc.so.6", that was enough to make the system stop to working.
 
-So that is the tip, don't erase that lib if you don't wanna to see you computer going to EXPLODE, =)
+So that is the tip, don't erase that lib if you don't wanna to see your computer going to EXPLODE, =)
 
 
 
